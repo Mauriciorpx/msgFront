@@ -1,8 +1,27 @@
-# React + Vite
+# Front App de Mensajeria
+## Como reguisito previo, se debe tener instalado nodeJs
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+* Descargar el backend del siguiente enlace:
 
-Currently, two official plugins are available:
+https://github.com/Mauriciorpx/msgBackend
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+* En la carpeta raiz del proyecto se deben instalar las dependencias:
+npm install
+
+* Iniciar el servidor del backend:
+
+npm start
+
+### Una vez que el backend se enuentre corriendo, se deberá ejecutar en otra terminal el servidor del Front:
+
+npm run dev
+
+### Visitar las siguientes rutas:
+
+* http://localhost:5173/orders
+* http://localhost:5173/
+* http://localhost:5173/messengers
+
+
+
+
