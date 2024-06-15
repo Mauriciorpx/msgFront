@@ -27,12 +27,27 @@ const OrderForm = ({ order, onSave }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (order) {
-            await updateOrder(order.Codigo, formData);
-        } else {
-            await createOrder(formData);
+        try {
+            if (order) {
+                await updateOrder(order.Codigo, formData);
+            } else {
+                await createOrder(formData);
+            }
+            onSave();
+            setFormData({
+                Usuario_Login: '',
+                Mensajero_Id: '',
+                Fecha_Hora_Solicitud: '',
+                Origen: '',
+                Destino: '',
+                Ciudad: '',
+                Descripcion: '',
+                Tipo_Transporte: 'moto',
+                Numero_Paquetes: 1
+            });
+        } catch (error) {
+            console.error('Error saving order:', error);
         }
-        onSave();
     };
 
     return (
@@ -56,3 +71,4 @@ const OrderForm = ({ order, onSave }) => {
 };
 
 export default OrderForm;
+

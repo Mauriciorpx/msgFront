@@ -22,12 +22,22 @@ const MessengerForm = ({ messenger, onSave }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (messenger) {
-            await updateMessenger(messenger.Identificacion, formData);
-        } else {
-            await createMessenger(formData);
+        try {
+            if (messenger) {
+                await updateMessenger(messenger.Identificacion, formData);
+            } else {
+                await createMessenger(formData);
+            }
+            onSave();
+            setFormData({
+                Nombre: '',
+                Direccion: '',
+                Email: '',
+                Telefono: ''
+            });
+        } catch (error) {
+            console.error('Error saving messenger:', error);
         }
-        onSave();
     };
 
     return (
@@ -42,3 +52,4 @@ const MessengerForm = ({ messenger, onSave }) => {
 };
 
 export default MessengerForm;
+

@@ -33,7 +33,6 @@ const Clients = () => {
         <div>
             <h2>Clients</h2>
             <ClientForm client={editingClient} onSave={handleSave} />
-            <h2>Listado de clientes</h2>
             <ul>
                 {clients.map(client => (
                     <li key={client.Identificacion}>
@@ -48,4 +47,5 @@ const Clients = () => {
 };
 
 export default Clients;
+
 

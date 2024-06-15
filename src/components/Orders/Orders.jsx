@@ -36,7 +36,7 @@ const Orders = () => {
             <ul>
                 {orders.map(order => (
                     <li key={order.Codigo}>
-                        {order.Descripcion} - {order.Estado}
+                        {order.Descripcion} - {order.Ciudad}
                         <button onClick={() => handleEdit(order)}>Edit</button>
                         <button onClick={() => handleDelete(order.Codigo)}>Delete</button>
                     </li>
@@ -47,4 +47,5 @@ const Orders = () => {
 };
 
 export default Orders;
+
 

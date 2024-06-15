@@ -23,12 +23,23 @@ const ClientForm = ({ client, onSave }) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        if (client) {
-            await updateClient(client.Identificacion, formData);
-        } else {
-            await createClient(formData);
+        try {
+            if (client) {
+                await updateClient(client.Identificacion, formData);
+            } else {
+                await createClient(formData);
+            }
+            onSave();
+            setFormData({
+                Nombre: '',
+                Direccion: '',
+                Ciudad: '',
+                Email: '',
+                Telefono: ''
+            });
+        } catch (error) {
+            console.error('Error saving client:', error);
         }
-        onSave();
     };
 
     return (
@@ -38,7 +49,7 @@ const ClientForm = ({ client, onSave }) => {
             <input type="text" name="Ciudad" value={formData.Ciudad} onChange={handleChange} placeholder="Ciudad" required />
             <input type="email" name="Email" value={formData.Email} onChange={handleChange} placeholder="Email" required />
             <input type="tel" name="Telefono" value={formData.Telefono} onChange={handleChange} placeholder="Telefono" required />
-            <button type="submit">Guardar</button>
+            <button type="submit">Save</button>
         </form>
     );
 };
